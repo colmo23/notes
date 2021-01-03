@@ -1,2 +1,6 @@
-# notes
-edit 1
+# Summary
+
+* [Clojure](clojure.md)
+* [Emacs](emacs.md)
+* [go-lang](go.md)
+* [bash](bash/README.md)

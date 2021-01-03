@@ -52,15 +52,6 @@ C-u CM-x        Evaluate the current experssion in a debugger
 
 \#break          Add this in code to start debugging from CM-x evaluation session
 
-## sample code:
- https://git.adaptivemobile.com/clojure/ams-data-aggregator.
-
- https://git.adaptivemobile.com/mfousek/kafka-store/blob/master/src/kafka_store/core.clj
-
- https://git.adaptivemobile.com/amurphy/url-analyser/tree/master
-
-
-
 # Clojure
 
 operation - (operator operand1 operand2 ...) - eg:

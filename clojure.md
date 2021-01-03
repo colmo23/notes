@@ -1,18 +1,14 @@
 # Cider
 
 M-x   cider
-
 C-u CM-x
-
 \#debug   - add breakpoint
 
 ## Debugger commands:
+
 n  - next
-
 i - step in fn
-
 o - step up
-
 c - continue
 
 

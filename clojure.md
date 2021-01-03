@@ -2,8 +2,9 @@
 
 M-x   cider
 C-u CM-x
-#debug   - add breakpoint
-Debugger commands:
+\#debug   - add breakpoint
+
+## Debugger commands:
 n  - next
 i - step in fn
 o - step up
@@ -11,6 +12,7 @@ c - continue
 
 
 ## Cider commands
+
 M-x cider-jack-in  Start lein
 C-e		Go to end of line
 C-x C-e		Run current line in repl
@@ -30,17 +32,18 @@ C-M-b		Go to opening bracket
 
 CM-x		Evaluate the current expression
 C-u CM-x        Evaluate the current experssion in a debugger
-#break          Add this in code to start debugging from CM-x evaluation session
+\#break          Add this in code to start debugging from CM-x evaluation session
 
 ## sample code:
  https://git.adaptivemobile.com/clojure/ams-data-aggregator.
  https://git.adaptivemobile.com/mfousek/kafka-store/blob/master/src/kafka_store/core.clj
-https://git.adaptivemobile.com/amurphy/url-analyser/tree/master
+ https://git.adaptivemobile.com/amurphy/url-analyser/tree/master
 
 
 # Clojure
 
 operation - (operator operand1 operand2 ...) - eg:
+```
 (+ 1 2 3) 
 (if bool
  then-form
@@ -73,37 +76,54 @@ operation - (operator operand1 operand2 ...) - eg:
 (nth '(:a :b :c) 0)    -get the first element of a list
 (list 1 2 3)  - create a list
 (conj '(1 2 3) 4) - 4 is added to start of list
-\#{"kurt vonnegut" 20 :icicle}   - a set - a collection of unique elements
+#{"kurt vonnegut" 20 :icicle}   - a set - a collection of unique elements
 (hash-set 1 1 2 2)   - create another set
 (set [3 3 3 4 4]) - create a set from a list
 (contains? #{:a :b} :a) - check if a set contains an element
-Calling a function: (operation operand1 operand2 ...)
+```
+
+## Calling a function: (operation operand1 operand2 ...)
+```
 (defn my-function
    "optional doc string"
    [arg1 arg2 & other-args]
    (map + arg1 arg2))
-Function example with different arities:
+```
+## Function example with different arities:
+```
 (defn x-chop
   "Describe the kind of chop you're inflicting on someone"
   ([name chop-type]
      (str "I " chop-type " chop " name "! Take that!"))
   ([name]
      (x-chop name "karate")))   (str "hello " name))
-Anonymouns function:
+```
+## Anonymouns function:
+```
 (fn [name] (str "Hi, " name))
+```
 Compact function "%" is the argumen
-\#(* % 3)
+```
+#(* % 3)
+```
 Two argumaents
-\#(* %1 %2)
+```
+#(* %1 %2)
+```
 
 
+```
 (re-find #"^left-" "left-eye")
+```
 Look from 10 to 0:
+```
 (loop [x 10]            
   (when (> x 1)
     (println x)
     (recur (- x 2))))     
+```
 
+```
  (let [[new-var & other-var-list] original-list])
 
 (def sum #(reduce + %))
@@ -148,11 +168,15 @@ Look from 10 to 0:
 
 (repeatedly fn) - create an infinite seq of the return value of a function
 
+```
 Return infinite seq of even numbers - lazy-seq stop a stack overflow error
+```
 (defn even-numbers
   ([] (even-numbers 0))
   ([n] (cons n (lazy-seq (even-numbers (+ n 2))))))
+```
 
+```
 (max 0 1 2)  - max function takes variable args
 (apply max [0 1 2])  - apply allows a list to be passed to the function max
 
@@ -181,15 +205,21 @@ Return infinite seq of even numbers - lazy-seq stop a stack overflow error
 
 (Integer/parseInt "-42")
 (bigdecimal "333.33")      # convert to decimal type
+```
 
 ### loop through a sequence:
+```
 (doseq [x [1 2 3]]                                                                                    |
   (println x)                                                                                           |
 )
+```
 
+```
 (-main "-h")    # run main from the repl
+```
 
 ## Typical dependencies
+```
 [lein-ancient "0.6.15"]
         [lein-cljfmt "0.6.7"]
         [lein-kibit "0.1.8"]
@@ -202,3 +232,4 @@ lein cljfmt fix  # format code
 lein bikeshed  # lint tool
 lein kibit # lint tool
 lein ancient # check for outdated artifacts
+```

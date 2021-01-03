@@ -1,43 +1,68 @@
 # Cider
 
 M-x   cider
+
 C-u CM-x
+
 \#debug   - add breakpoint
 
 ## Debugger commands:
 n  - next
+
 i - step in fn
+
 o - step up
+
 c - continue
+
 
 
 ## Cider commands
 
 M-x cider-jack-in  Start lein
+
 C-e		Go to end of line
+
 C-x C-e		Run current line in repl
+
 C-c M-n M-n     Sets the namespace to the namespace listed at the top of your current file
+
                 after this you can call any functions in the repl
+
 C-c C-k 	Compile file
+
 C-up arrow      Cycle thru history in repl
+
 q		quit error window
+
 C-c C-d C-d     Print documentation for symbol under point
+
 C-c C-d C-a     Search for text across function names and documentation
 
+
 M-x paredit-mode   Toggle paredit mode on/off
+
 M-(             Encode in brackets in paredit mode
+
 C-left arrow, right arrow  Slurp, barf elements of a list
+
 C-M-f           Go to closing bracket
+
 C-M-b		Go to opening bracket
 
 CM-x		Evaluate the current expression
+
 C-u CM-x        Evaluate the current experssion in a debugger
+
 \#break          Add this in code to start debugging from CM-x evaluation session
 
 ## sample code:
  https://git.adaptivemobile.com/clojure/ams-data-aggregator.
+
  https://git.adaptivemobile.com/mfousek/kafka-store/blob/master/src/kafka_store/core.clj
+
  https://git.adaptivemobile.com/amurphy/url-analyser/tree/master
+
 
 
 # Clojure

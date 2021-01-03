@@ -1,0 +1,15 @@
+set nocompatible
+set shell=/bin/sh
+syntax on
+filetype plugin on
+let g:go_disable_autoinstall = 0
+
+
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
+filetype on            " enables filetype detection
+filetype plugin on     " enables filetype specific plugins
+
+

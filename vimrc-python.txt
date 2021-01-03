@@ -1,0 +1,42 @@
+filetype on            " enables filetype detection
+filetype plugin on     " enables filetype specific plugins
+
+set nocompatible
+
+set encoding=utf8
+set expandtab
+set textwidth=0
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set autoindent
+set incsearch
+set ignorecase
+set ruler
+set wildmenu
+set commentstring=\ #\ %s
+set clipboard+=unnamed
+syntax on
+
+nnoremap <leader>1 oimport pdb;pdb.set_trace()<esc>
+
+set scrolloff=3
+set showmode
+set showcmd
+set hidden
+set foldmethod=indent
+set foldlevel=99
+
+set background=dark
+"colorscheme evening
+
+
+nnoremap / /\v
+vnoremap / /\v
+
+:set wildmenu
+:set cpo-=<
+:set wcm=<C-Z>
+:map <F4> :emenu <C-Z>
+
+

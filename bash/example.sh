@@ -27,4 +27,12 @@ false && echo "Will not be printed"
 # command output can be save to a file by putting $( ) around it as follows:
 files=$(ls)
 
+ArrayName=("element 1" "element 2" "element 3")
+echo "first element is ${ArrayName[0]}"
+echo "array length is ${#ArrayName[@]}"
+echo "Looping through elements:"
+for f in "${ArrayName[@]}"
+do
+  echo "$f"
+done
 

@@ -29,3 +29,10 @@ rg foo -A 5
 # Print statistics of matches (# of matched lines and files )
 rg --stats PATTERN
 ```
+
+
+## Log file summarise
+Strip out all number. Sort by count
+```
+cat file.log | sed 's/[0-9]//g' | sort | uniq -c | sort -nr
+```

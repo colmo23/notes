@@ -36,3 +36,12 @@ Strip out all number. Sort by count
 ```
 cat file.log | sed 's/[0-9]//g' | sort | uniq -c | sort -nr
 ```
+## grep commands:
+
+grep regex /var/log/logfile -A5 #To view the next 5 lines
+grep regex /var/log/logfile -B5 #To view the previous 5 lines
+grep regex /var/log/logfile -05 #To view the 5 lines before *and* after the match
+grep regex /var/log/logfile -05 #To view the 5 lines before *and* after the match
+
+Exclude multiple things from a file
+egrep -v 'THING1|THING2|THING3|THING4' file

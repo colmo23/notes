@@ -95,6 +95,14 @@ EOF
 )
 echo "$long_string"
 ```
+aws - get 5th word from line, eg file size from ls:
+```
+ls -l | awk '{print $5}'
+```
+Subshells - define temporary variable or cd into directory to run a command:
+```
+(cd some-dir; ./some-file.sh)
+```
 
 
 

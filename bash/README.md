@@ -11,7 +11,94 @@
 * [Shell check](https://www.shellcheck.net/)
 
 
+# Note from "How Linux works" book
+Note that * is the same as $(ls), eg the following populates files variable with directory contents:
+files=*
 
+Use single quotes to escape $variable and globs
+Use double quotes to only escape globs
+
+First argument: $1
+Second argument: $2
+Number of arguments: $#
+All arguments: $@
+Program name: $0
+Process id: $$
+Last exit code: $?
+
+The [ character means test. Hence you need to put the space after it in if statements as follows:
+```
+if [ "$1" = 'hi' ]; then
+  echo "first argument is 'hi'"
+else
+  echo "first argument is not 'hi'"
+fi
+```
+Note to quote the $1 so that it will expand to empty string if it does not exist
+
+Handling errors use || as an "OR":
+```
+ls /kjkj || echo "Directory /kjkj does not exist"
+```
+Handling success case use && as an "AND":
+```
+ls /kjkj && echo "Directory /kjkj does exist"
+```
+
+Testing conditionals:
+-f regular file
+-d directory
+-h link
+-r readable
+-w writable
+-x executable
+-z empty string
+-n not empty string
+eg
+```
+if [ -d "/tmp/" ]; then
+   echo "/tmp directory exists"
+fi
+if [ -z "$file" ]; then
+   echo '$file is empty'
+fi
+
+for loop
+```
+for file in $(ls); do
+  echo "file is $file"
+done
+```
+while:
+```
+myvar=""
+while [ -z $myvar ]; do
+  myvar="here"
+done
+```
+case
+```
+case $f in
+   fpu)  MSG="value is fpu"
+         ;;
+   *)    MSG="value is unknown"
+         ;; 
+esac
+echo "$f: $MSG"
+```
+Here document
+```
+long_string=$(cat <<EOF
+line 1
+line 2
+EOF
+)
+echo "$long_string"
+```
+
+
+
+# Misc
 ## bashrc samples
 pipe output of tshark over a network into a local wireshark:
 ```

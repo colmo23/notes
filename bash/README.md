@@ -62,7 +62,7 @@ fi
 if [ -z "$file" ]; then
    echo '$file is empty'
 fi
-
+```
 for loop
 ```
 for file in $(ls); do

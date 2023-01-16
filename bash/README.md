@@ -11,7 +11,7 @@
 * [Shell check](https://www.shellcheck.net/)
 
 
-# Note from "How Linux works" book
+# Notes from "How Linux works" book
 Note that * is the same as $(ls), eg the following populates files variable with directory contents:
 files=*
 
@@ -140,3 +140,13 @@ grep regex /var/log/logfile -05 #To view the 5 lines before *and* after the matc
 
 Exclude multiple things from a file
 egrep -v 'THING1|THING2|THING3|THING4' file
+
+## set commands
+### Exit on error:
+set -e
+### Give error code of the rightmost command to exit with a non-zero status
+set -o pipefail
+### Exit on error if unset variable is accessed
+set -u
+### If error occurs go to a trap function if it exists
+set -E

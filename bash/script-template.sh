@@ -22,6 +22,9 @@ EOF
 }
 
 cleanup() {
+    local lc="$BASH_COMMAND" rc=$?
+    echo "AN ERROR OCCURRED. Command [$lc] exited with code [$rc]"
+
     trap - SIGINT SIGTERM ERR EXIT
     # script cleanup here
 }

@@ -36,3 +36,14 @@ do
   echo "$f"
 done
 
+
+# example of retrying a resource
+attempts=1
+max_attempts=10
+while [ $attempts -lt $max_attempts ]; do
+    echo "Attempt $attempts of $max_attempts to run kubectl apply"
+    sleep 5
+    attempts=$((attempts+1))
+    kubectl apply -f calico_v1.yaml || attempts=10
+done
+

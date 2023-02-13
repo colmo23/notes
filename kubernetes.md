@@ -1,4 +1,17 @@
+# Kubernetes components
+## Control plane
+aka "master"
+* api server
+* cluster store - etcd
+* controller manager - Deployment controller, StatefulSet controller, ReplicaSet controller, etc
+* scheduler
 
+## worker
+* kubelet - watches the api server and executes tasks
+* container runtime - eg Docker
+* kube-proxy - node networking
+
+# Services
 ## service
 Selector links service to pods using labels
 Can map port to targetPort
@@ -33,4 +46,10 @@ Node controller can taint a node when there is memory pressure or other situatio
 
 Node-pressure eviction is the process by which the kubelet proactively terminates pods to reclaim resources on nodes.
 
+
+# Help
+## get list of topics:
+kubectl api-resources
+## get hep on a topic
+kubectl explain <topic name>
 

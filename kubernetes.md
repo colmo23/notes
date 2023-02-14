@@ -16,16 +16,27 @@ aka "master"
 Selector links service to pods using labels
 Can map port to targetPort
 
+eg 
+```
+kubectl get services
+...
+reporting-messaging-opendistro-es-kibana-svc         ClusterIP   10.192.239.64    <none>        443/TCP                               21h
+traffic-processing-messaging-ams-pxp-rest            NodePort    10.192.236.117   <none>        8000:30800/TCP                        21h
+```
+On a pod in the cluster reporting-messaging-opendistro-es-kibana-svc:443 or 10.192.239.64:443 is accessible but not accessible from outside the cluster
+<worker ip>:30800 is accessible outside the cluster.
+
 ## kube-proxy
 every node runs kube-proxy
 
 it takes traffic from service's clusterIP and port and redirect it to service's backend pods
 
 ## clusterIp
-this ip is only accessible internally
+This is the default service type.
+This ip is only accessible internally
 
 ## nodePort
-exposes the service on the worker node's port
+Exposes the service on the worker node's port
 
 
 ## pod selection

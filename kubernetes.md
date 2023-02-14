@@ -46,10 +46,43 @@ Node controller can taint a node when there is memory pressure or other situatio
 
 Node-pressure eviction is the process by which the kubelet proactively terminates pods to reclaim resources on nodes.
 
+# Pods
+Each pod has its own IP address. Containers in the pod share the IP address. Same applies for hostname.
+
+Pods are immutable.
+
+## Sidecar containter
+This is a helper container in a pod. Helps the main container do its job.
+## Init container
+Starts and finishes before the main container is allowed to start.
+
+## Getting information
+```
+# get pod manifest:
+kubectl get pods pod-name -o yaml
+# get pod info and event history:
+kubeclt describe pod pod-name
+```
+
+# Deployments
+Individual Pods don't self-heal, scale or allow for easy upgrade and rollback. Hence Pods are wrapped in Deployments.
 
 # Help
 ## get list of topics:
+```
 kubectl api-resources
-## get hep on a topic
+```
+## get help on a topic
+```
 kubectl explain <topic name>
+```
+## get help on all fields of a topic
+```
+kubectl explain <topic name> --recursive
+```
+then get help for one of the fields
+```
+kubectl explain sts.status.readyReplicas
+```
+
 

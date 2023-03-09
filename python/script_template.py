@@ -47,15 +47,16 @@ def extract_html_paragraphs(content):
     '''Extract all html paragraphs from a string'''
     para_regex = re.compile('''<p>.*?</p>''', re.DOTALL)
     para_matches = para_regex.findall(content)
-    return para_matches
+    matches_only = [p[3:-4] for p in para_matches]
+    return matches_only
 
 
 def test_extract_html_paragraphs():
     assert extract_html_paragraphs(
-        'start<p>value 1</p>')[0] == '<p>value 1</p>'
+        'start<p>value 1</p>')[0] == 'value 1'
     assert extract_html_paragraphs(
-        '<p>value 1</p><p>value 2</p>')[1] == '<p>value 2</p>'
-    assert extract_html_paragraphs('<p>value\n 1</p>')[0] == '<p>value\n 1</p>'
+        '<p>value 1</p><p>value 2</p>')[1] == 'value 2'
+    assert extract_html_paragraphs('<p>value\n 1</p>')[0] == 'value\n 1'
 
 
 if __name__ == '__main__':

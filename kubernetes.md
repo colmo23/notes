@@ -5,6 +5,7 @@ aka "master"
 * cluster store - etcd
 * controller manager - Deployment controller, StatefulSet controller, ReplicaSet controller, etc
 * scheduler
+* dns - coredns
 
 ## worker
 * kubelet - watches the api server and executes tasks
@@ -94,6 +95,19 @@ kubectl explain <topic name> --recursive
 then get help for one of the fields
 ```
 kubectl explain sts.status.readyReplicas
+```
+
+
+# Ingress
+A way of allowing multiple services use the same address. Services are differentiated based on hostname and path.
+
+Get all ingresses:
+```
+kubectl get ing
+```
+Describe and get path of a particular ingress (you will be able to see the path of the ingress)
+```
+kubectl describe ing reporting-messaging-opendistro-es-kibana-attachment-ing
 ```
 
 

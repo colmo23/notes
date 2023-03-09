@@ -36,11 +36,11 @@ def get_all_files_from_directory(directory):
 
 def process_a_file(filename):
     content = open(filename).read()
-    print("doing something with content: %s" % content[20:])
+    print("doing something with content: %s" % content[:20])
     paragraphs = extract_html_paragraphs(content)
     print("got %d html paragraphs from %s" % (len(paragraphs), filename))
     if len(paragraphs) > 0:
-        print("first paragraph is %s..." % paragraphs[0][:20])
+        print("first paragraph is %s..." % paragraphs[0][20:])
 
 
 def extract_html_paragraphs(content):

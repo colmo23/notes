@@ -1,0 +1,23 @@
+algorithm: A procedure, or a set of steps, used to solve a problem or perform a computation. In this book, the goal of an algorithm is to build a model
+
+feature: Any property or characteristic of the data that the model can use to make predictions. Eg weight, length, colour, type, etc
+
+label: this is the property we have trying to predict
+
+weight: a number to multiply the feature to get the label.
+bias: a constant that is not attached to the features. : (number of rooms)x(weight) + (bias) = price of house 
+
+Supervised learning - works with labeled data
+
+regression models are the types of models that predict numerical data
+
+classification models are the types of models that predict categorical data
+
+Unsupervised learning: The branch of machine learning that works with unlabeled data
+   - clustering algorithms: reducing the amount of data rows
+   - dimensionality reduction algorithms:  reducing the amount of labels
+   - generative algorithms:  making new things (eg new images)
+
+Reinforced learning - machine is given no data, but instead has a goal and rewards and punishments to get to the goal
+
+Linear regression

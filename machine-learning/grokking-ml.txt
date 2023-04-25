@@ -1,3 +1,5 @@
+# Chapter 3
+
 algorithm: A procedure, or a set of steps, used to solve a problem or perform a computation. In this book, the goal of an algorithm is to build a model
 
 feature: Any property or characteristic of the data that the model can use to make predictions. Eg weight, length, colour, type, etc
@@ -21,3 +23,13 @@ Unsupervised learning: The branch of machine learning that works with unlabeled 
 Reinforced learning - machine is given no data, but instead has a goal and rewards and punishments to get to the goal
 
 Linear regression
+
+# Chapter 4
+
+Overfitting - model is too simple
+Underfitting - model is too much like the data
+
+Training dataset - the data use to build the model
+Testing dataset - some extra data that is used to check the model
+Training error - error from using model with training data
+Testing error - error from using model with training data

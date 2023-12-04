@@ -14,5 +14,5 @@ pip freeze > requirements.txt
 ```
 Install packages in requirements file
 ```
-  pip install -3 requirements.txt
+  pip install -r requirements.txt
 ```

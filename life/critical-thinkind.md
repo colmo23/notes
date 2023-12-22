@@ -14,7 +14,7 @@
 - Why are we doing this?
 - What are the right questions to ask?
 - What can we safely assume?
-- Are we using insights from the wisets point of view?
+- Are we using insights from the wisest point of view?
 - How strongly is our reasoning supported by relevant information?
 - Are we all agreeing on the meaning of this idea or concept?
 - What's the best way to interpret this information?
@@ -41,13 +41,16 @@ Trusting Intuition - REF
 - R - regularity
 - E - exposure
 - F - feedback
+
 If you have these 3 condition you can trust your intuition
 
 # Conterfactual thinking
-thinking of alternative outcomes to past events
- - think of a event from the past. Modify a factor to the event, assess what would have happened
+Thinking of alternative outcomes to past events
 
-Loss aversion - we avoid losses more than we go for gains
+Think of a event from the past. Modify a factor to the event, assess what would have happened
+
+# Loss aversion
+We avoid losses more than we go for gains
 
 # Fallacies
 - Logical fallacy - flaws in reasoning
@@ -57,7 +60,7 @@ Loss aversion - we avoid losses more than we go for gains
 - Hasty generalisations
 
 
-#Planning fallacy
+# Planning fallacy
  - being overly optimistic
  - failing to consider data
 Inside view: gathering info, determining length, adding up

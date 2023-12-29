@@ -1,5 +1,7 @@
 # Leadership philosophy
 
+https://www.linkedin.com/learning/developing-your-leadership-philosophy/
+
 - yourself
 - thinking
 - people

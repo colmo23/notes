@@ -1,14 +1,28 @@
 # Stages of git
+file -> staging -> local repository (.git) -> remote repository
+
+## Adding changes
 
 - git add - add to staging area
 - git commit - add to local repository (.git)
 - git push - push to remote repository
 
+## Removing changes
+- git restore
+- git restore --cached
+
+## Viewing changes
+- git diff
+- git diff --cached
+
+# Misc
+
 distributed version control - all clients have full copy of the change history
 
+
+### Config
 git global user configuration
 ~/.gitconfig
-
 
 git config --list
 
@@ -24,11 +38,11 @@ Open file explorer on local directory
 explorer.exe .
 ```
 
-add all local changed files to staging area
+### add all local changed files to staging area
 git add .
 
 
-Connect your local repo to a remote repo (for the first time)
+### Connect your local repo to a remote repo (for the first time)
 git remote add origin <git url>
 
 
@@ -56,3 +70,9 @@ git restore --staged <filename>
 
 ### Go to a particular commit:
 git checkout <checksum>
+
+### Go to latest 
+git checkout main
+
+### view commit messages only (one line each)
+git log --oneline

@@ -30,3 +30,29 @@ git add .
 
 Connect your local repo to a remote repo (for the first time)
 git remote add origin <git url>
+
+
+### View all commits and their checksums
+git log
+
+### View changes in a commit
+git show <checksum>
+
+### Show detailed log of every commit
+git log -p
+
+### Show visualisation of how branches are
+git log --graph 
+
+
+### find a particular commit message
+git log --grep='regex to search for in commit messages'
+
+### Put this file in an empty folder to tell git the folder is in use
+.gitkeep
+
+### Revert changes that are in staging area
+git restore --staged <filename>
+
+### Go to a particular commit:
+git checkout <checksum>

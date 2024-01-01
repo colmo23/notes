@@ -1,5 +1,9 @@
 # Stages of git
-file -> staging -> local repository (.git) -> remote repository
+
+untracked file -> staging -> local repository (.git) -> remote repository
+
+staging area == cache == git's index
+working tree == untracked file or change
 
 ## Adding changes
 
@@ -76,3 +80,8 @@ git checkout main
 
 ### view commit messages only (one line each)
 git log --oneline
+
+### ammending to a commit
+For example you have done a commit, but then want to add more changes to it. Then add the files and do:
+
+git commit --ammend

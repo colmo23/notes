@@ -80,7 +80,7 @@ git checkout main
 ### view commit messages only (one line each)
 git log --oneline
 
-### ammending to a commit
+### amending to a commit
 For example you have done a commit, but then want to add more changes to it. Then add the files and do:
 
-git commit --ammend
+git commit --amend

@@ -74,7 +74,7 @@ git restore --staged <filename>
 ### Go to a particular commit:
 git checkout <checksum>
 
-### Go to latest 
+### Go to latest commit
 git checkout main
 
 ### view commit messages only (one line each)
@@ -84,3 +84,25 @@ git log --oneline
 For example you have done a commit, but then want to add more changes to it. Then add the files and do:
 
 git commit --amend
+
+### revert change
+
+go back to a previous state
+
+git log --oneline
+git revert <commit hash>
+
+### rebase
+
+Add a commit to an earlier stage in history
+
+Do interactive editing of full commit history:
+git rebase -i --root
+
+Do interactive editing of last 3 commits:
+git rebase -i HEAD~3
+
+### Branches
+
+View all branches:
+git branch

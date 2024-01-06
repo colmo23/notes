@@ -113,3 +113,12 @@ git checkout new-branch
 
 #### get updates from main branch
 git merge main
+
+#### what do do when finished with the branch and want to merge to main branch
+git add .
+git commit -m "commit for branch"
+git push -u origin <branch-name>
+git checkout main
+git pull
+git merge <branch-name>
+git branch -d <branch-name>

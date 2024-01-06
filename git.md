@@ -110,3 +110,6 @@ git branch
 #### Create and checkout a branch
 git branch new-branch
 git checkout new-branch
+
+#### get updates from main branch
+git merge main

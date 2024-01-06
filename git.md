@@ -104,5 +104,9 @@ git rebase -i HEAD~3
 
 ### Branches
 
-View all branches:
+#### View all branches:
 git branch
+
+#### Create and checkout a branch
+git branch new-branch
+git checkout new-branch

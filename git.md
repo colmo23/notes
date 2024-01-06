@@ -111,4 +111,5 @@ git branch
 git branch new-branch
 git checkout new-branch
 
-add new line
+#### get updates from main branch
+git merge main

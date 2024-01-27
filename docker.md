@@ -14,7 +14,7 @@ sudo docker build -t smtptest .
 sudo docker images | grep smtp
 
 # Run the created image and forward port 1025 to 1025 inside the container (smtp_server program listens on 1025)
- sudo docker run --name smtp-test-container -p 1025:1025 -d smtptest
+sudo docker run --name smtp-test-container -p 1025:1025 -d smtptest
 
 sudo docker stop smtp-test-container
 

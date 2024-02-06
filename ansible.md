@@ -154,3 +154,20 @@ Filters can modify values, eg convert an ip address to a new format using the ip
 ```
   - set_fact: ip2="{{ip1|ipaddr('network/prefix')}}"
 ```
+
+## Development steps
+
+Run the following to check a playbook:
+```
+ansible-playbook --syntax-check webservers-tls.yml
+ansible-lint webservers-tls.yml
+yamllint webservers-tls.yml
+```
+
+
+## facts
+
+View facts manually:
+```
+ansible ubuntu -m setup
+```

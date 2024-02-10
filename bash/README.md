@@ -4,7 +4,10 @@
 
 * [minimal-safe-bash-script-template](https://betterdev.blog/minimal-safe-bash-script-template/)
 * [minimal-safe-bash-script-template Hacker news discussion](https://news.ycombinator.com/item?id=25428621)
-
+* https://sharats.me/posts/shell-script-best-practices/
+* https://mywiki.wooledge.org/BashPitfalls
+* https://explainshell.com/
+* https://devhints.io/bash
 
 # Linter
 

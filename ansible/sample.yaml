@@ -1,0 +1,22 @@
+---
+- name: Example playbook
+  hosts: localhost
+  connection: local
+  tasks:
+  - name: Ensure ping is working
+    ping:
+  - name: Print all available facts
+    ansible.builtin.debug:
+      var: ansible_facts
+  - name: Print user_id fact info
+    ansible.builtin.debug:
+      var: ansible_facts.user_id
+  - name: Copy file with owner and permissions
+    copy:
+      src: README.md
+      dest: /tmp/readme-copy-tmp.md
+      mode: '0644'
+  - name: Copy file with dynamic filename
+    copy:
+      src: README.md
+      dest: /tmp/readme-copy-tmp{{ ansible_facts.uptime_seconds }}

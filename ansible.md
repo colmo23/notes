@@ -12,6 +12,7 @@ eg inventory.ini:
 
 ## Playbook
 Sample playbook, eg ping.yaml
+This playbook has one task which uses the ping module.
 ```
 ---
 - name: Ping server
@@ -21,6 +22,7 @@ Sample playbook, eg ping.yaml
   - name: Ensure ping is working
     ping:
 ```
+
 ## Run playbook
 ```
 ansible-playbook ping.yaml  -i inventory.ini
@@ -33,7 +35,7 @@ https://docs.ansible.com/ansible/2.9/modules/modules_by_category.html
 Note the "2.9" in the URL above is the ansible version. Use the correct docs for the version you have installed (ansible --version)
 
 ## Adhoc commands
-Use -m modues and -a module arguments
+Use -m <modue name> and -a <module arguments>
 ```
 ansible localhost -m find -a "paths=/tmp file_type=file"
 ```
@@ -164,10 +166,19 @@ ansible-lint webservers-tls.yml
 yamllint webservers-tls.yml
 ```
 
+## documentation
+Info on a module
+```
+ansible-doc <module name>
+```
+Search for a module (eg all modules that start with "apt")
+```
+ansible-doc -l | grep ^apt
+```
 
 ## facts
 
 View facts manually:
 ```
-ansible ubuntu -m setup
+ansible localhost -m setup
 ```

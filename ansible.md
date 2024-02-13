@@ -51,6 +51,10 @@ This will run the playbook but not make any changes:
 
 ansible-playbook tags.yaml --check
 
+## Only run tasks with a specific tag
+
+ansible-playbook tags.yaml --tag <tag-name>
+
 # variable
 
 ## pass variable to playbook
@@ -181,4 +185,15 @@ ansible-doc -l | grep ^apt
 View facts manually:
 ```
 ansible localhost -m setup
+```
+
+## Ansible version and system details
+```
+ colm@AMS-LT-395:~/git/notes$ ansible --version
+ansible 2.10.8
+  config file = None
+  configured module search path = ['/home/colm/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  executable location = /usr/bin/ansible
+  python version = 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0]
 ```

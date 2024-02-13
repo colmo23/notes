@@ -1,0 +1,190 @@
+kubectl
+
+control
+- apiserver: all control requests go through this
+- etcd:  DB
+- controller-manager: converts "deployments" to pods
+- scheduler: starts pods on workers
+
+worker
+- kube-proxy: networking plumbing for services
+- kubelet: starts and monitors pods on local worker
+
+Kubernetes is declarative - you say what you want, kubernetes tries to achieve this
+
+sudo yum install httpie -y
+http --verify ~/.minikube/ca.crt --cert ~/.minikube/profiles/minikube/client.crt \
+     --crt-key ~/.minikube/profiles/minikube/client.key https://127.0.0.1?333
+
+kubectl get pods -o json | jq '.apiVersion'
+kubectl get pods -o json | jq '.items[1]'
+
+
+Authorization is handled by RBAC plugin (role based access control)
+
+kubectl get roles
+kubectl get roles --all-namespaces
+
+Get all yaml associated with a pod
+kubectl get pod npp-v8-ams-pxp-diameter-5fbf5f569-bxmmw -o yaml
+
+Get all possible types of resource:
+kubectl api-resources
+
+See how a yaml file compares to the deployed system:
+kubectl diff -f xx.yaml
+
+Show dry run output:
+kubectl apply -f xx.yaml --dry-run=server -o yaml
+
+There are lots of controllers in the controller-manager: 
+ eg deployment controller take deployment and generate replica set
+    replica set controller 
+
+Kubelet is a type of controller that reads the pod spec and talks to docker to start the pod.
+Run on the worker node. 
+
+kube-proxy - is a type of controller that reads pod and service descriptions and creates iptables rules
+ on the worker node to create VIPs and route traffic 
+
+kubenetes uses dns for load balancing. Means that pods don't have to have any kubernetes specific knowledge.
+Pods just use hostnames and dns resolves. coredns is the pod that does dns service.
+
+Pods can have labels:
+ labels:
+    app: blue-green
+Services can use a selector to forward traffic to a set of pods with those labels:
+  selector:
+    app: blue-green
+
+Apply all yaml files in a directory:
+kubectl apply -f <dirname>
+
+ClusterIP - only accessible from inside the cluster
+NodePort - exposes port on a node externally
+
+Load balancer -> Ingress controller -> Service -> Pod
+
+Ingress controller is a http reverse proxy
+
+# get help on a type of resource and its fields:
+kubectl explain ingress
+kubectl explain <resource type>
+
+# Provide remove access to a pod's network interface:
+kubectl port-forward <pod name> <local port>:<remote port>
+
+# use a label selector to get the logs from all pods that have that label:
+kubectl logs -l app=blue-green
+
+# A deployment is a way of stating replicas for pods
+# a deployment has a temlate, & in it you have the pod config
+# it also has a selector which references at the labels of the pods you want in the deployment
+# Pods running in the deployment will be given a random suffix
+
+# krew is kubectl deployment manager - here is how to install "tree" plugin:
+kubectl krew install tree
+
+# View the differences between a yaml file and what is actually running on the system:
+kubectl diff -f xx.yaml
+
+Kubernetes job is a one off task. Eg start container, run one command and then exit
+(by default kubernetes expect processes to run forever)
+
+Liveness probe - a built in kubernetes way of checking a pod is working ok
+spec -> containers -> livenessProbe -> httpGet -> path 
+
+Endpoints - these are instances of a kubernetes service. Each service needs one or more endpoints
+
+Resource requests - min amount of resources allowed (cpu and memory)
+Resource limits - max amount of resources allowed. Pod gets killed if it is exceeded
+
+PodAffinity
+NodeAffinity
+spec:
+  affinity:
+     podAffinity:
+       requiredDuringSchedulingIngnoredDuringExecutio:
+         - labelSelector:
+           matchLabels:
+             app: cache         <--- label of other pod you want to run with
+           topologyKey: kubernetes.io/hostname  <-- run on same hostname as matched pod
+
+topologySpreadContraints - spread out on different nodes
+podAntiAffinity is a older, more crude form of topologySpreadContraints 
+
+If node has taint pods will not run on it unless they are configured to have a toleration for that taint
+
+HorizontalPodAutoScaler - a type for starting new pods based on certain criteria like cpu usage
+
+ConfigMap - a kind with a data section. Data is key-value pairs
+
+# Create a kubernetes yaml file from a create command:
+kubectl create configmap website --from-file=index.html --dry-run -o yaml > website.yaml
+
+A pod's volumes can be populated by the contents of a configmap. Volumes can be mounted on a specific path of the container
+
+Secrets are similar to config maps except more secure
+
+NetworkPolicy - rules for allowing traffic between pods
+
+Zero trust networking - only allow communication from entities with trusted certs.
+Service mesh is an alternative (both are not kubernetes specific)
+
+RBAC - pods can run with different serviceAccounts
+You can create roles that allow different permissions
+serviceAccounts can be bound to certain Roles
+
+
+namespaces - a kind for separating different kubernetes projects into
+--all-namespaces
+
+Sidecar - an extra container that runs in a pod that can do a specific piece of work.
+  eg intercept all traffic going into the pod and converting it or logging it
+
+Service mesh - linkerd is example
+linkerd install <-- generates large yaml file that can be used with "kubectl apply -f ..."
+
+Update mypod.yaml with an added sidecar with the linkerd service mesh:
+cat mypod.yaml | linkerd inject --manual -
+
+## helm
+helm history npp-v8
+
+# use debug plugin to get a shell into a pod without a bash executable:
+kubectl debug pod-name --attach
+(it creates a sidecar in the pod with unix tools)
+
+# plugin that runs wireshark for a cluster:
+kubectl sniff 
+
+# simple ci/cd. 
+skaffold dev
+https://skaffold.dev
+- watches the source files, rebuilds containers and restarts pods as changes are made
+
+Types of Production Clusters:
+
+Self managed: DIY
+Managed install: Kubeadm
+Managed deploy: kops
+Full managerd: EKS, GKE, AKS
+
+
+Docker commands:
+################
+sudo docker build -t kubia .
+sudo docker images
+sudo docker run --name kubia-controller -p 8080:8080 -d kubia
+sudo docker ps | grep kubia
+sudo docker inspect kubia-controller
+sudo docker exec -it kubia-controller bash
+sudo docker stop kubia-controller
+sudo docker rm kubia-controller
+
+[adaptive@sigkafka3 kubia]$ cat Dockerfile
+FROM node:7
+ADD app.js /app.js
+ENTRYPOINT ["node", "app.js"]
+
+

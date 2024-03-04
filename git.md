@@ -1,3 +1,8 @@
+# Overview
+https://git-scm.com/docs/everyday
+```
+man 7 giteveryday
+```
 # Stages of git
 
 untracked file -> staging -> local repository (.git) -> remote repository

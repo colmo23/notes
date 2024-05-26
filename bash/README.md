@@ -37,6 +37,14 @@ else
   echo "first argument is not 'hi'"
 fi
 ```
+
+Regex based test
+```
+if [[ "$1" =~ 'hi' ]]; then
+  echo "first argument contains the string 'hi'"
+fi
+
+```
 Note to quote the $1 so that it will expand to empty string if it does not exist
 
 Handling errors use || as an "OR":

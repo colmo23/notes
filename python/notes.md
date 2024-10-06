@@ -1,19 +1,49 @@
+
+# use enumerate to get an index while iterating through a list
+
 ```
-Card = collections.namedtuple('Card', ['rank', 'suit'])
-class FrenchDeck:
-    ranks = [str(n) for n in range(2, 11)] + list('JQKA')
-    suits = 'spades diamonds clubs hearts'.split()
-    def __init__(self):
-        self._cards = [Card(rank, suit) for suit in self.suits
-            for rank in self.ranks]
-    def __len__(self):
-        return len(self._cards)
-    def __getitem__(self, position):
-        return self._cards[position]
+for i, color in enumerate(colors):
+    print i, '--->', color
 ```
 
+# Use izip to iterative over two collections
+```
+for name, color in izip(names, colors):
+    print name, '--->', color
+```
+
+# Looping in custom order
+```
+print sorted(colors, key=len)
+```
+
+# Looping over dictionary
+```
+for k, v in d.iteritems():
+    print k, '--->', v
+```
+
+# Construct dictionary from pairs
+```
+names = ['raymond', 'rachel', 'matthew']
+colors = ['red', 'green', 'blue']
+
+d = dict(zip(names, colors))
+```
+
+#  Use get to return a default value from a dictionary
+```
+d = {}
+for color in colors:
+    d[color] = d.get(color, 0) + 1
+```
+
+# Adding dictionaries together
+
+Use ChainMap to link dictionaries.
+
 # namedtuple
-Use namedtuple to give meaning to tuple fields
+Use namedtuple to return meaningful tuples a function return codes
 
 ```
 # importing "collections" for namedtuple()
@@ -48,3 +78,22 @@ my_dict['vegetables'].append('carrot')
 # Print the defaultdict
 print(my_dict)
 ```
+
+
+# Avoid temporary values by using unpacking
+
+Eg swap to variables
+```
+x,y = (y * 2, x + 10)
+```
+
+# Use cache decorator to return cached value
+```
+@cache
+def factorial(n):
+    return n * factorial(n-1) if n else 1
+```
+
+# Beautiful, idomatic python
+
+<https://gist.github.com/0x4D31/f0b633548d8e0cfb66ee3bea6a0deff9>

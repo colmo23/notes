@@ -31,10 +31,22 @@ x.get(10,0)
 0
 ```
 
-20 - prefer raising exceptions to returning None
+# 20 - prefer raising exceptions to returning None
 
-22 - use variable positional arguments
+# 22 - use variable positional arguments
 
 ```
 def log(message, *values):
+```
+
+# 26 - Define functional decorators with wraps
+
+Otherwise the decorator will mask the name of the function
+
+
+
+# 27 - List comprehensions
+You can generate a dict from a list comprehension.
+```
+even_squares_dict = {x: x**2 for x in a if x % 2 == 0}
 ```

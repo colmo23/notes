@@ -1,4 +1,4 @@
-Chapter 6 How user space starts
+# Chapter 6 How user space starts
 
 1. init
 2. essential low level services
@@ -8,3 +8,20 @@ Chapter 6 How user space starts
 
 Systemd - /usr/lib/systemd, /etc/systemd directories
 
+
+# check for core dumps
+coredumpctl
+
+
+# systemctl 
+##directories
+
+/lib/systemd/system
+  Package-installed units
+/etc/systemd/system
+  System admin–configured units
+/run/systemd/system
+  Nonpersistent runtime modifications
+
+
+Example of installed service: /etc/systemd/system/k3s.service

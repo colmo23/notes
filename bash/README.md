@@ -150,3 +150,9 @@ set -o pipefail
 set -u
 ### If error occurs go to a trap function if it exists
 set -E
+
+
+
+# Test frameworks
+BATS - https://bats-core.readthedocs.io/en/stable/tutorial.html
+

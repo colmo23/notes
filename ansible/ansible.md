@@ -60,3 +60,15 @@ ansible-doc <module name> - info on a module
 print out ansible facts - system variables that can be used by playbooks
 ansible <hostname> -m ansible.builtin.setup
 - example of fact variable - {{ hostvars['asdf.example.com']['ansible_facts']['os_family'] }}
+
+
+
+Use "register" keyword to store output of an ansible task as follows:
+```
+tasks:
+ - name: Capture output of id command
+ command: id -un
+ register: login
+ - debug: var=login
+ - debug: msg="Logged in as user {{ login.stdout }}"
+```

@@ -25,3 +25,9 @@ coredumpctl
 
 
 Example of installed service: /etc/systemd/system/k3s.service
+
+View process relationship:
+systemctl status
+
+cgroups cpu usage:
+ systemd-cgtop

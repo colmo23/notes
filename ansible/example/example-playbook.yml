@@ -5,6 +5,7 @@
     - shell: echo 'hello world'
 
     - name: Run myprog
+#     debugger: always
       command: ls
       register: result
       ignore_errors: true

@@ -10,10 +10,12 @@ Playbooks are made up of multiple tasks and handlers. Sample webserver.yml:
   tasks:
     - name: Install nginx
       package: name=nginx
+      notify: Restart nginx
   handlers:
-    - name: restart nginx
+    - name: Restart nginx
       service:name=nginx state=restarted
 ```
+The handler called "Restart nginx" is only called if there is a change done by the "Install nginx" task which has a "notify:" operation in it.
 
 
 ```
@@ -72,3 +74,48 @@ tasks:
  - debug: var=login
  - debug: msg="Logged in as user {{ login.stdout }}"
 ```
+
+List tasks in a playbook
+```
+ansible-playbook --list-tasks mezzanine.yml
+```
+
+Debugger
+```
+- name: deploy mezzanine on web
+  hosts: web
+  debugger: always
+```
+
+Assertions - check something and fail if it is not present
+```
+- name: Assert that the enp0s3 ethernet interface exists
+  assert:
+    that: ansible_enp0s3 is defined
+```
+
+For example, check if file exists
+```
+- name: Stat /boot/grub
+  stat:
+    path: /boot/grub
+  register: st
+- name: Assert that /boot/grub is a directory
+  assert:
+    that: st.stat.isdir
+```
+
+Can tag roles or tasks and then use the --tags or --skip-tags command line args to only run or skip those tags
+
+Can use --limit argument to only run playbook on certain hosts.
+
+Below if the variable database_host does not exist then "localhost" is used
+```
+host: "{{ database_host | default('localhost') }}"
+```
+
+Create a blank role directory structure:
+```
+ansible-galaxy role init my-role
+```
+

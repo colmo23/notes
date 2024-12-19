@@ -74,6 +74,7 @@ Start vim and run the following vim command (it will take about a minute to run)
 ```
 :GoInstallBinaries
 ```
+If you get an error then it best to install gopls manually using a version that matches your go version. See here for compatability: https://github.com/golang/tools/tree/master/gopls#supported-go-versions
 
 2.3 Update path for vim-go dependencies
 ```

@@ -9,7 +9,6 @@ A python script template for to demonstrate reading arguments and processing a
 directory.
 """
 
-
 def parse_options():
     parser = OptionParser()
     parser.add_option(

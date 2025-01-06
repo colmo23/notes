@@ -119,3 +119,20 @@ Create a blank role directory structure:
 ansible-galaxy role init my-role
 ```
 
+Only run playbook on certain types of server (eg webservers):
+```
+ansible-playbook playbook.yml --limit webservers
+```
+
+# Testing
+
+## Hierarchy of checking
+* yamllint
+* ansible-playbook --syntax-check
+* ansible-lint
+* molecule test
+* ansible-playbook --check
+
+
+Use debug module to output details
+Use fail and assert modules to check

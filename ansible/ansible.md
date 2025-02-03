@@ -48,12 +48,15 @@ Template task can modify and then copy a config file
 Ansible "roles" are attributes you assign to one or more hosts. Eg database role, OAM role.
 
 ```
+# Dry run a playbook
 ansible-playbook --check webservers.yml
 
+# Run a single module on an inventory
 ansible-playbook -i inventory.ini -m ping
+# Run a single module with an attribute
 ansible -i inventory.ini -m command -a uptime
 ansible -i inventory.ini -m command -a "tail /var/log/dmesg"
-run the same as privelged (add -b):
+# run the same as privelged (add -b):
 ansible -i inventory.ini -b -m command -a "tail /var/log/dmesg"
 ansible-inventory --graph
 ansible-doc <module name> - info on a module
@@ -119,9 +122,32 @@ Create a blank role directory structure:
 ansible-galaxy role init my-role
 ```
 
-Only run playbook on certain types of server (eg webservers):
+Download a galaxy role (eg geerlingguy.nginx)
+```
+ansible-galaxy install geerlingguy.nginx
+```
+
+Only run playbook on certain types of server (eg webservers) or a particular host:
 ```
 ansible-playbook playbook.yml --limit webservers
+```
+
+
+Show what hosts would be affected by a playbook
+```
+ansible-playbook playbook.yml --list-hosts
+```
+
+View facts:
+```
+ansible all -i inventory -m setup
+```
+
+Jinja2 info
+```
+{% ... %} for Statements (eg if, for)
+{{ ... }} for Expressions to print to the template output, eg print variable
+{# ... #} for Comments not included in the template output
 ```
 
 # Testing

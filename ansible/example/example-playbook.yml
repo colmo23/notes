@@ -4,17 +4,20 @@
   tasks:
     - shell: echo 'hello world'
 
-    - name: Run myprog
+    - name: Run command ls
 #     debugger: always
       command: ls
       register: result
       ignore_errors: true
     - debug: var=result
-    - debug: msg="First line is {{ result.stdout_lines[0] }}"
-    - debug: msg="First line is {{ result['stdout_lines'][0] }}"
-    - debug: msg="Ansible facts OS family {{ ansible_facts.os_family }}"
-    - debug: msg="All Ansible fact keys {{ ansible_facts.keys() }}"
-    - debug: msg="Hostvars {{ hostvars }}"
-    - debug: msg="Hostvar keys {{ hostvars.localhost.keys() }}"
-    - debug: msg="All Ansible fact keys {{ ansible_facts.keys() }}"
-    - debug: msg="Facts hostname {{ ansible_facts.hostname }}"
+    - debug: msg="First line of command output is '{{ result.stdout_lines[0] }}'"
+    - debug: msg="First line is '{{ result['stdout_lines'][0] }}'"
+    - debug: msg="Ansible facts OS family '{{ ansible_facts.os_family }}'"
+    - debug: msg="All Ansible fact keys '{{ ansible_facts.keys() }}'"
+    - debug: msg="Hostvars variable is '{{ hostvars }}'"
+    - debug: msg="Hostvar keys are '{{ hostvars.localhost.keys() }}'"
+    - debug: msg="All Ansible fact keys '{{ ansible_facts.keys() }}'"
+    - debug: msg="Facts hostname '{{ ansible_facts.hostname }}'"
+# Example of using a default if a variable does not exist:
+    - debug: msg="'{{ abd | default(hostvars) }}'"
+

@@ -2,6 +2,48 @@
 
 3Blue1Brown youtube
 
+
+Neural Netwok
+Neural - something that holds a number. Usually between 0 and 1
+
+Eech neuron can get processed in multiple phases. Example:
+
+
+eg image digit recognition
+input is a 28x28 pixel image. Each pixel is 0 to 1 grayscale value
+That determines the activation of 28x28=784 neurons in the input layer of the network. The neurons are listed a1,a2,...a784
+Given an input activation matrix a1..an and weigth w1..wn the next node is computed as:
+sigmoid(w1a2 + w2a2 + w3a3 ... + bias)
+where sigmoid is a function that coverts a number to something betwee 0 and 1.
+
+The final layer is a propabilities that the digit is one of 0 to 9
+
+Training adjusts the weights and biases
+
+MNIST database - has labelled databases of handwritten digits labelled with what they are supposed to be.
+
+"cost" is how wrong an answer is during training
+
+Say w is the array of all the weight and biases
+Cost = C(w)   - how to find w where C(w) is the minimum
+Calculus can be used to check the gradient to find the direction where C(w) is at its minimum
+Multivariable calculus is used if there are multiple dimensions to the data
+
+Gradient descent - way to find local minimum for C(w)
+The gradient of the cost function tells us which weight has the most impact
+
+Michael Neilson - deep learning and neural networks. - http://neuralnetworksanddeeplearning.com/
+this book has the code and explanation on how to train on digits
+
+Chapter 3
+Backpropogation - how neural networks learn
+Backpropogation - how a single training example would like to nudge the weights and biases towards a better answer
+  - also what relative changes cause the best outcomes
+Training is subdivided into minibatches and backprop is done on each of these - computationally cheaper.
+Overall want to find a local minimum of the cost function
+
+Chapter 5
+
 _GTP_
 - Generative - makes something
 - Pretrained - models have been pretrained on data

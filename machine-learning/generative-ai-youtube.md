@@ -1,9 +1,9 @@
 # generative ai
 
-3Blue1Brown youtube
+## 3Blue1Brown youtube
 
 
-Neural Netwok
+## Neural Netwok
 Neural - something that holds a number. Usually between 0 and 1
 
 Eech neuron can get processed in multiple phases. Example:
@@ -35,14 +35,14 @@ The gradient of the cost function tells us which weight has the most impact
 Michael Neilson - deep learning and neural networks. - http://neuralnetworksanddeeplearning.com/
 this book has the code and explanation on how to train on digits
 
-Chapter 3
+## Chapter 3
 Backpropogation - how neural networks learn
 Backpropogation - how a single training example would like to nudge the weights and biases towards a better answer
   - also what relative changes cause the best outcomes
 Training is subdivided into minibatches and backprop is done on each of these - computationally cheaper.
 Overall want to find a local minimum of the cost function
 
-Chapter 5
+## Chapter 5
 
 _GTP_
 - Generative - makes something
@@ -65,7 +65,7 @@ The model takes the seed text, predicts the next word, then feeds the whole lot 
 System prompt: eg "What follows is a conversation between a user and a helpful AI assistant"
 User prompt: Write a story about a happy clown
 
-General Machine learning:
+## General Machine learning
 Input -> Model (lots of tunable parameters) -> Output
 
 GTP3 has 170 billion parameters -> 28,000 matrices
@@ -127,3 +127,12 @@ MLPs - mulit layer perceptrons - where facts are stored, eg names of people, etc
 Transformer = Attention + MLP
 
 Superposition - how facts are stored in martics
+
+## Summary of generative process
+
+* text is split up into tokens (word or part of word)
+* each token is mapped to a vector (a sequence of numbers that describes the meaning of the token)
+* each vector is passed to an Attention block (allows the vectors to talk to each other and update each other)
+* then passed through Multilayer Perceptron (these store a lot of data on the real world)
+* Text is passed through the above 2 blocks multiple times.
+* When finished it looks at the last vector and generates the next word based only on the last vector

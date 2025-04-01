@@ -1,3 +1,14 @@
+# Use uv to automate downloading of dependencies
+```
+#!/usr/bin/env -S uv run --script
+# /// script
+# dependencies = ["ipython", "httpx", "loguru"]
+# ///
+import httpx
+import IPython
+from loguru import logger
+```
+
 
 # use enumerate to get an index while iterating through a list
 

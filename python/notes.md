@@ -9,6 +9,11 @@ import IPython
 from loguru import logger
 ```
 
+Alternatively run:
+```
+uv run jam_users.py
+```
+
 
 # use enumerate to get an index while iterating through a list
 

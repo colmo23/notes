@@ -31,14 +31,15 @@ Start vim and do
 
 If on windows to copy to clipboard select using C-v or whatever and then do y. Paste as normal for windows.
 
+## Autocomplete
 Commands in insert mode
-C-y  - use selected autocomplete
-C-n  - cycle through next suggestions, press enter to select one
-C-p  - cycle through previous suggestions, press enter to select one
+* C-y  - use selected autocomplete
+* C-n  - cycle through next suggestions, press enter to select one
+* C-p  - cycle through previous suggestions, press enter to select one
 
 
-Other command
-C-n  - toggle nerdtree file viewer
+Other commands
+* C-n  - toggle nerdtree file viewer
 
 
 

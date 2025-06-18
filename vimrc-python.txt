@@ -42,4 +42,14 @@ vnoremap / /\v
 :set wcm=<C-Z>
 :map <F4> :emenu <C-Z>
 
+" Filetype-specific settings
+augroup filetype_indentation
+    autocmd!
+
+    " Python files: 4 spaces
+    autocmd FileType python setlocal softtabstop=4 shiftwidth=4 expandtab
+
+    " Shell scripts: 2 spaces
+    autocmd FileType sh setlocal softtabstop=2 shiftwidth=2 expandtab
+augroup END
 

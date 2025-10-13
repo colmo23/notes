@@ -1,3 +1,11 @@
+# Install on Redhat
+```
+sudo dnf -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo systemctl --now enable docker
+sudo chmod 777 /var/run/docker.sock
+```
+
+# Example
 Create a direcotry
 
 ```
@@ -14,17 +22,17 @@ sudo docker build -t smtptest .
 sudo docker images | grep smtp
 
 # Run the created image and forward port 1025 to 1025 inside the container (smtp_server program listens on 1025)
- sudo docker run --name smtp-test-container -p 1025:1025 -d smtptest
+sudo docker run --name smtp-test-container -p 1025:1025 -d smtptest
 
 sudo docker stop smtp-test-container
 
 # Downloading an image tarball and loading it manually into another system (eg if docker repo is down)
 
 ## Pull an image from a remote repo into the local repo:
-sudo docker pull docker.adaptivemobile.com/npp/pxp:2.14.0-1147
+sudo docker pull docker.abc.com/npp/xyz:2.14.0-1147
 
 ## Save the pulled image to a local file
-sudo docker save docker.adaptivemobile.com/npp/pxp:2.14.0-1147 > pxp-147.tar
+sudo docker save docker.abc.com/npp/xyz:2.14.0-1147 > xyz-147.tar
 
 ## Then copy file to remove VM and load it using
-sudo docker load < pxp-147.tar
+sudo docker load < xyz-147.tar

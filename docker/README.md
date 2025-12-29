@@ -1,25 +1,52 @@
-# Sample python web server image
-
-# Running
-
-Run the following commands in this directory
-
-## Build the image
+# Install on Redhat
 ```
-docker build -t python-web-server:latest .
+sudo dnf -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo systemctl --now enable docker
+sudo chmod 777 /var/run/docker.sock
 ```
 
-## Run the container
+# Example
+Create a direcotry
+
 ```
-docker run -d -p 8080:5000 --name python-app-container python-web-server:latest
+[centos@colmmini smtptest]$ cat Dockerfile
+FROM node:7
+ADD smtp_server /smtp_server
+RUN chmod +x /smtp_server
+ENTRYPOINT ["/smtp_server"]
+```
+Copy smtp_server binary into it (or whatever program you need)
+
+```
+sudo docker build -t smtptest .
+
+sudo docker images | grep smtp
 ```
 
-## Verify
+Run the created image and forward port 1025 to 1025 inside the container (smtp_server program listens on 1025)
 ```
-http://localhost:8080
+sudo docker run --name smtp-test-container -p 1025:1025 -d smtptest
 ```
 
-## Check logs
+Stop it when necessary
+
 ```
-docker logs python-app-container
+sudo docker stop smtp-test-container
+```
+
+# Downloading an image tarball and loading it manually into another system (eg if docker repo is down)
+
+## Pull an image from a remote repo into the local repo:
+```
+sudo docker pull docker.abc.com/npp/xyz:2.14.0-1147
+```
+
+## Save the pulled image to a local file
+```
+sudo docker save docker.abc.com/npp/xyz:2.14.0-1147 > xyz-147.tar
+```
+
+## Then copy file to remove VM and load it using
+```
+sudo docker load < xyz-147.tar
 ```

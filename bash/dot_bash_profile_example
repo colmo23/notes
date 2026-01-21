@@ -1,0 +1,29 @@
+export PATH=$PATH:~/.local/bin
+
+
+# Seach utilities
+alias lkp='find . -name "*.py" -print0 | xargs -0 grep'
+alias lkgo='find . -name "*.go" -print0 | xargs -0 grep'
+alias lkjson='find . -name "*.json" -print0 | xargs -0 grep'
+alias lksh='find . -name "*.sh" -print0 | xargs -0 grep'
+alias lkl='find . -name "*.pl" -print0 | xargs -0 grep'
+alias lka='find . -name "*" -type f -print0 | xargs -0 grep'
+alias lky='find . -name "*.yaml" -print0 | xargs -0 grep'
+alias lkc='find . \( -name "*.cpp" -o -name "*.h" -o -name "*.c" \) -print0 | xargs -0 grep'
+alias lkh='find . \( -name "*.h" \) -print0 | xargs -0 grep'
+alias lkj='find .  -name "*.java"  -print | xargs  grep'
+alias lkci='find . \( -name "*.cpp" -o -name "*.h" -o -name "*.c" \) -print0 | xargs -0 grep -i'
+alias lkmake='find . \( -name "*ake*" \) -print0 | xargs -0 grep'
+
+
+# Better ls
+alias ls='ls -F'
+
+# --- PERMANENT BASH HISTORY ---
+export HISTSIZE=100000
+export HISTFILESIZE=1000000
+export HISTCONTROL=ignoreboth
+export HISTTIMEFORMAT="%F %T "
+shopt -s histappend
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+

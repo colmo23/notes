@@ -47,7 +47,7 @@ ovs-vsctl show
 ### should show up as a link in:
 ip link
 
-### virtual ethernet interfaces, create ethernet pair eith0-r and veth-r (where "r" means red)
+### virtual ethernet interfaces, create ethernet pair eth0-r and veth-r (where "r" means red)
 ip link add eth0-r type veth peer name veth-r
 
 ### this should show up in "ip link" command
@@ -84,7 +84,7 @@ ip netns exec red ip route
 ```
 ip netns exec green bash
 ```
-### then run the command for the green ns
+### then run the commands for the green ns
 ```
 ip link set dev lo up
 ip link set dev eth0-g up

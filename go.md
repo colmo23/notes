@@ -1,4 +1,4 @@
-# Sample go project setup
+# Sample go project setup 
 
 1. Install RHEL version of go:
 ```

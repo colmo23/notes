@@ -87,3 +87,42 @@ Ask claude to write the skills and commands
 MCP - ask claude to find ones for you, get playright. May be a bit out of date
 
 Sub-agents - parallel work & protect current context window
+
+
+###############################################
+
+Matt Pocock AI Skills
+https://github.com/mattpocock/skills
+
+
+the design of desgn Brooks
+Ousterhout A Philosophy of Software Design
+
+
+/grill-me skill
+
+Reach shared design concept
+
+
+AI is too verbose
+Developer vs Domain Expert
+Ubiquitous language - list of terminilogy used in the project. AI can generate it. Allows AI to think in less verbose way
+
+
+
+Code does work
+Use feedback loops
+- static types
+- browser access
+- automated tests
+Take smaller deliberate steps
+
+try to use skill /tdd
+
+deep modules are better: lots of functionality, simple interface, hides complexity
+
+/improve-codebase-architecture
+
+Tactical versus Stragegic Programmer
+
+###############################################

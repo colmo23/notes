@@ -1,0 +1,24 @@
+Software eng is at the tipping point
+
+https://www.youtube.com/watch?v=2n41YjR5QfU&vl=en
+
+engineering is coding over time
+10x software speed happening
+socio-technological
+software is a liability
+document engineering practices
+10x of everything: more compiling, larger builds, more network traffic
+capacity constraint
+Jevons paradox - the cheaper it get, the more we use it
+everyone's a builder - everyone is building their own tools, that might need to be maintained
+in a system everything is connected
+AI is ampliefier
+Need good Fundumentals
+Developer ecosystem is going to change massively
+Important things:
+- capacity - need more
+- validation - need better/modified validation strategy
+- abstraction - need good abstraction for agents to use
+New skills, flexibility, creativity, encourage exploration
+AI can make sense of large sets of data
+Choose to be helpful - share what works

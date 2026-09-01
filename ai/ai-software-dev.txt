@@ -1,0 +1,18 @@
+Individual benefits but team disimprovements
+
+coding is not the bottleneck
+ai for entire dev cycle: plan, build, test, deploy, operate, monitor
+
+shift left on intent - spending more time planning, tradeoffs, context. Writing specification files. Helps ai agents.
+Craft robust guidelines, 
+Want verified code.
+Job boundaries blurring
+Iterate and apply learnings
+T-shape
+Broad knowledge is the horizontal
+Deep expert knowledge (a language, a domain) is the vertical.
+AI allows more to be done in the broad knowledge area
+
+https://www.youtube.com/watch?v=q_Jq4IgYImk
+https://www.youtube.com/watch?v=shZgedW15vg
+
